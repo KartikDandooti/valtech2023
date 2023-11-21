@@ -43,6 +43,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public void deleteEmployee(int id) {
 		employeeRepo.deleteById(id);
 	}
+
+	@Override
+	public List<Employee> getAllEmployeesByDeptId(int deptId) {
+		// TODO Auto-generated method stub
+		return employeeRepo.getAllEmployeesByDeptId(deptId);
+	}
+	
+	
 	
 	
 

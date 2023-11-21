@@ -30,20 +30,26 @@
 			<td><input type="text" name="age" value="<%=emp.getAge()%>">
 			</td>
 			</tr>
-
+              <tr>
 			<td>Experience</td>
 			<td><input type="text" name="experience"
 				value="<%=emp.getExperience()%>"></td>
 			</tr>
-
+            <tr>
 			<td>Seniority</td>
 			<td><input type="text" name="seniority"
 				value="<%=emp.getSeniority()%>"></td>
 			</tr>
 
+             <tr>
 			<td>Salary</td>
 			<td><input type="text" name="salary"
 				value="<%=emp.getSalary()%>"></td>
+			</tr>
+			<tr>
+			<td>DepartId</td>
+			<td><input type="text" name="department"
+				value="<%=emp.getDepartment().getDeptId()%>"></td>
 			</tr>
 
 			<tr>

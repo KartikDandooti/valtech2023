@@ -1,9 +1,12 @@
 package com.valtech.training.assignmentHib.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,13 +20,16 @@ public class Employee {
 	private int experience;
 	private int seniority;
 	private double salary;
+	@ManyToOne(targetEntity = Department.class,fetch = FetchType.EAGER)
+	@JoinColumn(name = "deptId" ,referencedColumnName = "deptId")
+	private Department department;
 
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int id, String name, int age, int experience, int seniority, double salary) {
+	public Employee(int id, String name, int age, int experience, int seniority, double salary,Department department) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -31,6 +37,17 @@ public class Employee {
 		this.experience = experience;
 		this.seniority = seniority;
 		this.salary = salary;
+		this.department=department;
+	}
+
+	public Employee(String name, int age, int experience, int seniority, double salary, Department department) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.experience = experience;
+		this.seniority = seniority;
+		this.salary = salary;
+		this.department = department;
 	}
 
 	public Employee(String name, int age, int experience, int seniority, double salary) {
@@ -42,6 +59,11 @@ public class Employee {
 		this.salary = salary;
 	}
 
+	public void setDepartmentToEmployee(Department department)
+	{
+		this.department=department;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -89,5 +111,14 @@ public class Employee {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	
 
 }

@@ -1,5 +1,6 @@
 package com.valtech.training.assignmentHib.model;
 
+import com.valtech.training.assignmentHib.entities.Department;
 import com.valtech.training.assignmentHib.entities.Employee;
 
 public class EmployeeModel {
@@ -10,6 +11,7 @@ public class EmployeeModel {
 	private int experience;
 	private int seniority;
 	private double salary;
+	private Department department;
 	
 	public EmployeeModel(Employee e) {
 		this.id=e.getId();
@@ -18,6 +20,7 @@ public class EmployeeModel {
 		this.experience=e.getExperience();
 		this.seniority=e.getSeniority();
 		this.salary=e.getSalary();
+		this.department=e.getDepartment();
 	}
 	
 	
@@ -28,7 +31,7 @@ public class EmployeeModel {
 
 
 	public Employee getEmployee() {
-		return new Employee(id,name,age,experience,seniority,salary);
+		return new Employee(id,name,age,experience,seniority,salary,department);
 	}
 
 	public int getId() {
@@ -78,6 +81,18 @@ public class EmployeeModel {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+
+
+	public Department getDepartment() {
+		return department;
+	}
+
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	
+	
 	
 	
 

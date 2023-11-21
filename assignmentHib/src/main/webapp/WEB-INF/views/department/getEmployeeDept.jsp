@@ -1,18 +1,18 @@
+<%@page import="com.valtech.training.assignmentHib.model.EmployeeModel"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.List"%>
-<%@page import="com.valtech.training.assignmentHib.model.EmployeeModel"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
-	<h1>List of employee</h1>
 	<%
-	List<EmployeeModel> employee = (List<EmployeeModel>) request.getAttribute("employee");
+	List<EmployeeModel> employees = (List<EmployeeModel>) request.getAttribute("employee");
 	%>
+
 	<table border="1" width="30%" height="30%">
 		<tr>
 			<th>Id</th>
@@ -22,10 +22,9 @@
 			<th>Seniority</th>
 			<th>Salary</th>
 			<th>Department</th>
-			<th>Action</th>
 		</tr>
 		<%
-		for (EmployeeModel emp : employee) {
+		for (EmployeeModel emp : employees) {
 			request.setAttribute("emp", emp);
 			/* for jstl setAttribute has to be used  */
 		%>
@@ -37,23 +36,18 @@
 			<td>${emp.seniority}</td>
 			<td>${emp.salary}</td>
 			<td>${emp.department.deptId}</td>
-			<td><a href="edit?id=${ emp.id}">Edit</a>
-			<td><a href="delete?id=${emp.id }">Delete</a>
 		</tr>
 		<%
 		}
 		%>
-
 		<tfoot>
 			<td colspan="5" align="right">
-				<form action="new" method="get">
-					<input type="submit" name="submit" value="New Employee" />
+				<form action="list" method="get">
+					<input type="submit" name="submit" value="Back To Department" />
 
 				</form>
 			</td>
 		</tfoot>
-
-	</table>
-
+	
 </body>
 </html>
