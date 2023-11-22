@@ -12,44 +12,45 @@
 	<h1>Editing employee</h1>
 	<%
 	EmployeeModel emp = (EmployeeModel) request.getAttribute("employee");
+	request.setAttribute("emp", emp);
 	%>
 	<form method="post" action="save?id=<%=emp.getId()%>">
 		<table>
 			<tr>
 				<td>Id</td>
-				<td><input type="text" name="id" value="<%=emp.getId()%>"
+				<td><input type="text" name="id" value="${emp.id}"
 					disabled="disabled"></td>
 			</tr>
 			<tr>
 				<td>Name</td>
-				<td><input type="text" name="name" value="<%=emp.getName()%>">
+				<td><input type="text" name="name" value="${emp.name }">
 				</td>
 			</tr>
 
 			<td>Age</td>
-			<td><input type="text" name="age" value="<%=emp.getAge()%>">
+			<td><input type="text" name="age" value="${ emp.age}">
 			</td>
 			</tr>
               <tr>
 			<td>Experience</td>
 			<td><input type="text" name="experience"
-				value="<%=emp.getExperience()%>"></td>
+				value="${ emp.experience}"></td>
 			</tr>
             <tr>
 			<td>Seniority</td>
 			<td><input type="text" name="seniority"
-				value="<%=emp.getSeniority()%>"></td>
+				value="${ emp.seniority}"></td>
 			</tr>
 
              <tr>
 			<td>Salary</td>
 			<td><input type="text" name="salary"
-				value="<%=emp.getSalary()%>"></td>
+				value="${ emp.salary}"></td>
 			</tr>
 			<tr>
 			<td>DepartId</td>
 			<td><input type="text" name="department"
-				value="<%=emp.getDepartment().getDeptId()%>"></td>
+				value="${ emp.department.deptId}"></td>
 			</tr>
 
 			<tr>
